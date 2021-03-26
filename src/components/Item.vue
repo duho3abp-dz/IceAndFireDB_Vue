@@ -1,24 +1,23 @@
 <template>
     <li class="b-item">
-        <button class="b-item__button">
-            <h6 class="b-item__name">
-                <span class="text--line">{{ character.name }}</span>
-            </h6>
-            <ul class="b-item__collection">
-                <li class="b-item__clause">
-                    Gender: <span class="b-item__clause--accent">{{ character.gender }}</span>
-                </li>
-                <li class="b-item__clause">
-                    Gender: <span class="b-item__clause--accent">{{ character.gender }}</span>
-                </li>
-                <li class="b-item__clause">
-                    Born: <span class="b-item__clause--accent">{{ character.born }}</span>
-                </li>
-                <li class="b-item__clause">
-                    Culture: <span class="b-item__clause--accent">{{ character.culture }}</span>
-                </li>
-            </ul>
-        </button>
+        <router-link :to="{ path: `/characters/${character.id}` }" >
+            <div class="b-item__button">
+                <h6 class="b-item__name">
+                    <span class="text--line">{{ character.name }}</span>
+                </h6>
+                <ul class="b-item__collection">
+                    <li class="b-item__clause">
+                        Gender: <span class="b-item__clause--accent">{{ character.gender }}</span>
+                    </li>
+                    <li class="b-item__clause">
+                        Born: <span class="b-item__clause--accent">{{ character.born }}</span>
+                    </li>
+                    <li class="b-item__clause">
+                        Culture: <span class="b-item__clause--accent">{{ character.culture }}</span>
+                    </li>
+                </ul>
+            </div>
+        </router-link>
     </li>
 </template>
 
@@ -73,5 +72,15 @@ export default {
 .b-item__clause--accent {
     color: #dadada;
     font-size: 20px;
+}
+
+@media screen and (max-width: 767px) {
+    .b-item {
+        margin-right: unset;
+    }
+
+    .b-item__button {
+        box-shadow: #0a0a0a 10px 10px 0px;
+    }
 }
 </style>

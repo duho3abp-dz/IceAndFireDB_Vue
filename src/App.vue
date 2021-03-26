@@ -88,4 +88,23 @@ export default {
 .l-footer__inside {
   padding: 20px 40px;
 }
+
+@media screen and (max-width: 1200px) {
+  .l-conten__inside {
+    width: 668px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .l-conten__inside {
+    width: 100%;
+    padding: 200px 20px 80px;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .l-outer {
+    width: 300px;
+  }
+}
 </style>

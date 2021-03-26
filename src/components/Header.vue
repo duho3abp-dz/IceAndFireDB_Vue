@@ -29,4 +29,16 @@ export default {
     justify-content: space-between;
     align-items: center;
 }
+
+@media screen and (max-width: 767px) {
+    .b-header {
+        flex-direction: column;
+        justify-content: unset;
+        align-items: center;
+    }   
+
+    .b-header__navigation {
+        margin-top: 20px;
+    }
+}
 </style>

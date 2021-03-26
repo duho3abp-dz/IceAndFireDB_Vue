@@ -47,3 +47,35 @@
 .animate-link:hover::after {
     opacity: 1;
 }
+
+.animate-button {
+    font-size: 24px;
+    font-weight: 800;
+    background-color: #272727;
+    border: 5px solid #0a0a0a;
+    padding: 10px 40px;
+    box-shadow: #0a0a0a 0px 0px 0px;
+    transition: box-shadow .1s ease;
+}
+
+.animate-button:hover {
+    box-shadow: #0a0a0a 10px 10px 0px;
+}
+
+.inverted {
+    transform: rotate(180deg);
+}
+
+@media screen and (max-width: 1200px) {
+    .title-l {
+        font-size: 30px;
+    }
+      
+    .title-m {
+        font-size: 24px;
+    }   
+
+    .text--line::after {
+        height: 0px;
+    }
+}

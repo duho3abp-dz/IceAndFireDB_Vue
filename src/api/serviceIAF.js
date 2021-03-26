@@ -14,20 +14,20 @@ export default class ServiceIAF {
     getAllCharacters = async (page = 3) => {
         const result = await this.getResourse(`?page=${page}&pageSize=10`);
         return result.reduce((res, obj) => 
-            obj.name ? [...res, this._transformCharacter(obj)] : [...res]
+            obj.name ? [...res, this._transformAllCharacters(obj)] : [...res]
         , []);
     };
 
-    getCharacter = async (id = 1) => {
-        const res = await this.getResourse(`/${id}`);
-        return this._transformCharacter(res);
+    getPerson = async (id = 14) => {
+        const result = await this.getResourse(`/${id}`);
+        return this._transformPerson(result);
     };
 
     _extractId = (url) => {
         return url.match(/\/([0-9]*)$/)[1];
     };
 
-    _transformCharacter = (obj) => {
+    _transformAllCharacters = (obj) => {
         const noInfo = 'No info';
         const id = this._extractId(obj.url);
         return { id,
@@ -35,6 +35,19 @@ export default class ServiceIAF {
             gender: obj.gender ? obj.gender : noInfo, 
             born: obj.born ? obj.born : noInfo, 
             culture: obj.culture ? obj.culture : noInfo
+        };
+    };
+
+    _transformPerson = (obj) => {
+        const noInfo = 'No info';
+        return {
+            name: obj.name ? obj.name : noInfo, 
+            gender: obj.gender ? obj.gender : noInfo, 
+            born: obj.born ? obj.born : noInfo, 
+            culture: obj.culture ? obj.culture : noInfo,
+            died: obj.died ? obj.died : noInfo,
+            father: obj.father ? obj.father : noInfo,
+            mother: obj.mother ? obj.mother : noInfo
         };
     };
 }
