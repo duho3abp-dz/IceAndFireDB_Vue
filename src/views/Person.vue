@@ -6,24 +6,12 @@
                 <h1 class="b-person__title title-l">
                     <span class="text--line">{{ person.name }}</span>
                 </h1>
-                <ul class="b-person__collection">
-                    <li class="b-person__clause">
-                        Gender: <span class="b-person__clause--accent">{{ person.gender }}</span>
-                    </li>
-                    <li class="b-person__clause">
-                        Born: <span class="b-person__clause--accent">{{ person.born }}</span>
-                    </li>
-                    <li class="b-person__clause">
-                        Died: <span class="b-person__clause--accent">{{ person.died }}</span>
-                    </li>
-                    <li class="b-person__clause">
-                        Culture: <span class="b-person__clause--accent">{{ person.culture }}</span>
-                    </li>
-                    <li class="b-person__clause">
-                        Father: <span class="b-person__clause--accent">{{ person.father }}</span>
-                    </li>
-                    <li class="b-person__clause">
-                        Mother: <span class="b-person__clause--accent">{{ person.mother }}</span>
+                <ul class="b-person__collection" >
+                    <li class="b-person__clause"
+                        v-for="(item, key) in person.info"
+                        :key="key" >
+                        <span class="b-person__clause--name">{{ key }}:</span>
+                        <span class="b-person__clause--accent">{{ item }}</span>
                     </li>
                 </ul>
             </div>
@@ -98,6 +86,10 @@ export default {
 
 .b-person__clause:last-child {
     margin-bottom: unset;
+}
+
+.b-person__clause--name {
+    text-transform: capitalize;
 }
 
 .b-person__clause--accent {

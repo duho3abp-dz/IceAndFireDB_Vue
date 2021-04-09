@@ -42,12 +42,14 @@ export default class ServiceIAF {
         const noInfo = 'No info';
         return {
             name: obj.name ? obj.name : noInfo, 
-            gender: obj.gender ? obj.gender : noInfo, 
-            born: obj.born ? obj.born : noInfo, 
-            culture: obj.culture ? obj.culture : noInfo,
-            died: obj.died ? obj.died : noInfo,
-            father: obj.father ? obj.father : noInfo,
-            mother: obj.mother ? obj.mother : noInfo
+            info: {
+                gender: obj.gender ? obj.gender : noInfo, 
+                born: obj.born ? obj.born : noInfo, 
+                culture: obj.culture ? obj.culture : noInfo,
+                died: obj.died ? obj.died : noInfo,
+                father: obj.father ? obj.father : noInfo,
+                mother: obj.mother ? obj.mother : noInfo
+            }
         };
     };
 }
