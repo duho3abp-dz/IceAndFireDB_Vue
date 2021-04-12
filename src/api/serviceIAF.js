@@ -1,5 +1,6 @@
 export default class ServiceIAF {
-    _url = 'https://www.anapioficeandfire.com/api/characters'
+    _url = 'https://www.anapioficeandfire.com/api/characters';
+    noInfo = 'No info';
 
     getResourse = async (path) => {
         const result = await fetch(`${this._url}/${path}`);
@@ -28,7 +29,7 @@ export default class ServiceIAF {
     };
 
     _transformAllCharacters = (obj) => {
-        const noInfo = 'No info';
+        const { noInfo } = this;
         const id = this._extractId(obj.url);
         return { id,
             name: obj.name ? obj.name : noInfo, 
@@ -39,7 +40,7 @@ export default class ServiceIAF {
     };
 
     _transformPerson = (obj) => {
-        const noInfo = 'No info';
+        const { noInfo } = this;
         return {
             name: obj.name ? obj.name : noInfo, 
             info: {
