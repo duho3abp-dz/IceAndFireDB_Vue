@@ -7,7 +7,8 @@
                     <span class="text--line">{{ person.name }}</span>
                 </h1>
                 <ul class="b-person__collection" >
-                    <li class="b-person__clause"
+                    <li 
+                        class="b-person__clause"
                         v-for="(item, key) in person.info"
                         :key="key" >
                         <span class="b-person__clause--name">{{ key }}:</span>
@@ -16,7 +17,11 @@
                 </ul>
             </div>
             <div class="b-person__back">
-                <router-link class="animate-button" :to="{name: 'characters'}" >Back</router-link>
+                <router-link 
+                    class="animate-button" 
+                    :to="{name: 'characters'}" >
+                    Back
+                </router-link>
             </div>
         </div>
         
